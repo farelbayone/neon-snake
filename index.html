@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070b18" />
+  <meta name="description" content="Neon Snake — arcade snake game by Farel Bayone Meijabar." />
+  <title>NEON SNAKE — Farel Edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Neon Snake home"><span class="brand-mark">⌁</span> NEON<span>SNAKE</span></a>
+    <div class="top-actions"><span class="live-dot"></span><span>ARCADE SYSTEM ONLINE</span><button id="soundToggle" class="icon-btn" aria-label="Toggle sound">♫ <small>SOUND</small></button></div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow"><span></span> CLASSIC ARCADE · REIMAGINED</div>
+      <h1>NEON <em>SNAKE</em></h1>
+      <p class="subtitle">One more bite. One more high score.</p>
+    </section>
+
+    <section class="game-layout">
+      <aside class="side-panel left-panel">
+        <div class="panel-label">SESSION STATS</div>
+        <div class="stat-card"><span class="stat-icon">✦</span><div><small>YOUR SCORE</small><strong id="score">0000</strong></div></div>
+        <div class="stat-card"><span class="stat-icon purple">♛</span><div><small>PERSONAL BEST</small><strong id="best">0000</strong></div></div>
+        <div class="stat-card"><span class="stat-icon blue">◷</span><div><small>TIME PLAYED</small><strong id="time">00:00</strong></div></div>
+        <div class="level-card"><div class="level-head"><span>LEVEL</span><strong id="level">01</strong></div><div class="level-track"><i id="levelBar"></i></div><small id="levelHint">Collect 5 points to level up</small></div>
+        <div class="tip-card"><span>⌨</span><div><b>PRO TIP</b><p>Use arrow keys or WASD. Press <kbd>SPACE</kbd> to pause your run.</p></div></div>
+      </aside>
+
+      <section class="board-wrap">
+        <div class="board-top"><div class="status"><i id="statusDot"></i><span id="statusText">READY TO PLAY</span></div><div class="board-meta">GRID <b>24 × 24</b><span>•</span> MODE <b id="modeLabel">NORMAL</b></div></div>
+        <div class="canvas-frame">
+          <canvas id="game" width="600" height="600" aria-label="Snake game board"></canvas>
+          <div class="overlay" id="overlay">
+            <div class="overlay-content"><div class="overlay-symbol" id="overlaySymbol">⌁</div><p class="overlay-kicker" id="overlayKicker">SYSTEM READY</p><h2 id="overlayTitle">READY PLAYER?</h2><p id="overlayText">Collect energy orbs. Avoid the walls. Don't bite your tail.</p><button id="mainButton" class="primary-btn">START GAME <span>↗</span></button><div class="overlay-hint">PRESS ENTER TO START</div></div>
+          </div>
+        </div>
+        <div class="game-controls"><button id="pauseButton" class="control-btn" disabled>Ⅱ <span>PAUSE</span></button><button id="restartButton" class="control-btn">↻ <span>RESTART</span></button><div class="mode-control"><label for="difficulty">DIFFICULTY</label><select id="difficulty"><option value="normal">NORMAL</option><option value="chill">CHILL</option><option value="insane">INSANE</option></select></div></div>
+        <div class="mobile-pad" aria-label="Touch controls"><button data-dir="up">▲</button><div><button data-dir="left">◀</button><button data-dir="down">▼</button><button data-dir="right">▶</button></div></div>
+      </section>
+
+      <aside class="side-panel right-panel">
+        <div class="panel-label">GLOBAL LEADERBOARD <span class="trophy">♛</span></div>
+        <div class="leaderboard" id="leaderboard"><div class="empty-board">NO SCORES YET<br><small>Be the first legend.</small></div></div>
+        <div class="leader-foot"><span class="live-dot"></span><span id="leaderSource">LOCAL LEADERBOARD</span></div>
+        <div class="submit-card"><b>YOUR LEGACY</b><p>Beat your best and claim a spot on the board.</p><button id="nameButton" class="outline-btn">SET PLAYER NAME</button></div>
+        <div class="achievement"><span>⚡</span><div><b>CHASE THE GLOW</b><small>Every 5 foods increases your level.</small></div></div>
+      </aside>
+    </section>
+    <section class="bottom-strip"><div><span class="keycap">↑</span><span class="keycap">←</span><span class="keycap">↓</span><span class="keycap">→</span> MOVE</div><div><span class="keycap">SPACE</span> PAUSE</div><div><span class="keycap">ENTER</span> START / RESTART</div><div class="build-tag">BUILT FOR THE NEXT HIGH SCORE</div></section>
+  </main>
+  <footer>DESIGNED & BUILT WITH <span>♥</span> BY <b>FAREL BAYONE MEIJABAR</b><small>NEON SNAKE · v1.0.0</small></footer>
+  <dialog id="nameDialog"><form method="dialog" class="dialog-card"><button class="close-dialog" value="cancel" aria-label="Close">×</button><div class="eyebrow">PLAYER PROFILE</div><h2>WHO'S PLAYING?</h2><p>Your name appears on the leaderboard.</p><input id="playerName" maxlength="16" placeholder="Enter your name" autocomplete="nickname" /><div class="dialog-actions"><button class="outline-btn" value="cancel">CANCEL</button><button id="saveName" class="primary-btn" value="default">SAVE NAME ↗</button></div></form></dialog>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
