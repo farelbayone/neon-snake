@@ -41,6 +41,6 @@
   window.addEventListener('keydown',key);document.addEventListener('visibilitychange',()=>{if(document.hidden&&state.running)pause()});
   load();$('playerName').value=state.player;renderBoard();updateUI();draw();loadRemote();
   // Optional Supabase online leaderboard: fill these two values to enable shared scores.
-  const SUPABASE_URL='', SUPABASE_ANON_KEY='';
+  const SUPABASE_URL='https://ouecduempqzeiubdekqq.supabase.co', SUPABASE_ANON_KEY='sb_publishable_-MZvCPfAQHjwS3uuGmhtWA_eo3zM_Gh';
   if(SUPABASE_URL&&SUPABASE_ANON_KEY&&window.supabase){window.NEON_SUPABASE=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);loadRemote()}
 })();
