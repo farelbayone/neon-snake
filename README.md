@@ -1,4 +1,4 @@
-# NEON SNAKE — Farel Edition
+# NEON SNAKE 
 
 A polished neon arcade Snake game built with HTML, CSS and vanilla JavaScript. No build step required; deploy directly to GitHub Pages.
 
